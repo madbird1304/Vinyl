@@ -19,6 +19,6 @@ executable Vinyl
   main-is:             Main.hs
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.8 && <4.9, bmp >=1.2 && <1.3, bytestring >=0.10 && <0.11, WAVE >=0.1 && <0.2, vector >=0.11 && <0.12, repa >=3.4 && <3.5, repa-io >=3.4 && <3.5
+  build-depends:       base >=4.7 && <4.8, bytestring >=0.10 && <0.11, vector >=0.10 && <0.11, bmp >=1.2.5.2, WAVE >= 0.1.3
   -- hs-source-dirs:      
   default-language:    Haskell2010

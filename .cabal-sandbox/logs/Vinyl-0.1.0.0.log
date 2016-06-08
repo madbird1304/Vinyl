@@ -1,0 +1,15 @@
+[1 of 1] Compiling Main             ( dist/dist-sandbox-ec29bca5/setup/setup.hs, dist/dist-sandbox-ec29bca5/setup/Main.o )
+Linking ./dist/dist-sandbox-ec29bca5/setup/setup ...
+Configuring Vinyl-0.1.0.0...
+Warning: The 'license-file' field refers to the file 'LICENSE' which does not
+exist.
+Building Vinyl-0.1.0.0...
+Preprocessing executable 'Vinyl' for Vinyl-0.1.0.0...
+
+PlotterIO.hs:3:8:
+    Could not find module ‘Codec.BMP’
+    Use -v to see a list of the files searched for.
+
+PlotterIO.hs:6:8:
+    Could not find module ‘Data.WAVE’
+    Use -v to see a list of the files searched for.

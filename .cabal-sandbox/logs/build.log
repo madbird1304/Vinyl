@@ -1,0 +1,41 @@
+
+package: Vinyl-0.1.0.0
+os: linux
+arch: i386
+compiler: ghc-7.8.4
+client: cabal-install-1.22.0.1
+dependencies: vector-0.10.12.3 bytestring-0.10.4.0 base-4.7.0.2
+install-outcome: BuildFailed
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: WAVE-0.1.3
+os: linux
+arch: i386
+compiler: ghc-7.8.4
+client: cabal-install-1.22.0.1
+dependencies: parseargs-0.2.0.4 containers-0.5.5.1
+              bytestring-0.10.4.0 base-4.7.0.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: parseargs-0.2.0.4
+os: linux
+arch: i386
+compiler: ghc-7.8.4
+client: cabal-install-1.22.0.1
+dependencies: containers-0.5.5.1 base-4.7.0.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: bmp-1.2.5.2
+os: linux
+arch: i386
+compiler: ghc-7.8.4
+client: cabal-install-1.22.0.1
+dependencies: bytestring-0.10.4.0 binary-0.7.1.0 base-4.7.0.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried

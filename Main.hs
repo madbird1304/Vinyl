@@ -1,5 +1,5 @@
 --{-# OPTIONS_GHC -O2 #-}
-module Vinyl where
+module Main where
 
 import System.Environment
 import PlotterIO
