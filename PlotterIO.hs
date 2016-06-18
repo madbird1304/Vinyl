@@ -47,11 +47,14 @@ printFigure :: String -> Int -> [V2I] -> IO ()
 printFigure path sz = writeBMP path . bmpFromPoints sz
 
 
+postproc x = signum x - x
+
+
 getWave :: String -> Spire -> IO (SoundClosure,Double)
 getWave path (Spire _ dur _) = do
     WAVE (WAVEHeader _ fr _ (Just fc)) samples <- getWAVEFile path
     let fr' = fromIntegral fr
-    let samples' = V.fromListN fc $ map (sampleToDouble . head) samples
+    let samples' = V.fromListN fc $ map (postproc . sampleToDouble . head) samples
     let closure = \t -> let n = floor $ t * fr' in 
             case t < dur && n < fc of
                 True -> samples' V.! n

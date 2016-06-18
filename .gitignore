@@ -1,2 +1,5 @@
+*.wav
+*.exe 
+*.hi
 *.o
-dist
+*.bmp

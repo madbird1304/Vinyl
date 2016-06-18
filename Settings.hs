@@ -6,8 +6,8 @@ type Settings = [(SET,Double)]
 
 defaultSettings :: Settings
 defaultSettings = [
-    (T,0.5),
-    (AMP,0.05)
+    (T,1),
+    (AMP,0.01)
     --(DURATION, 90.0)
     ]
 
