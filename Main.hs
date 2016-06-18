@@ -1,4 +1,4 @@
---{-# OPTIONS_GHC -O2 #-}
+{-# OPTIONS_GHC -O2 #-}
 module Main where
 
 import System.Environment
@@ -12,13 +12,11 @@ main = do
     let sz = read sz'
         dur = read dur'
     settings' <- initialize ""
-    let settings = (if dur /= 0 then [(DURATION,dur)] else []) ++ settings'
+    let settings = if dur /= 0 then (DURATION,dur) : settings' else settings'
     plotter <- buildPlotter (settings) inp
     printFigure  outp sz $ calcPoints sz plotter
     where
-        defaultArgs = defaultSize : defaultWavePath : defaultDuration : defaultBMPPath : []
-        parseArgs ret@(_:_:_:_:_) = ret
-        parseArgs ret@(_:_:_:_) = take 3 ret ++ drop 3 defaultArgs
-        parseArgs ret@(_:_:_) = take 2 ret ++ drop 2 defaultArgs
-        parseArgs ret@(_:_)   = take 1 ret ++ drop 1 defaultArgs
-        parseArgs _ = defaultArgs
+        defaultArgs = [defaultSize , defaultWavePath , defaultDuration , defaultBMPPath]
+        parseArgs ret = let n = length ret in 
+            ret ++ drop n defaultArgs 
+        
