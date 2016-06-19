@@ -53,9 +53,6 @@ printFigure :: String -> Int -> [V2I] -> IO ()
 printFigure path sz = writeBMP path . bmpFromPoints sz
 
 
---postproc x = signum x - x
-
-
 getWave :: String -> Spire -> IO (SoundClosure,Duration)
 getWave path (Spire _ dur _) = do
     WAVE (WAVEHeader _ fr _ (Just fc)) samples <- getWAVEFile path
@@ -71,7 +68,7 @@ getWave path (Spire _ dur _) = do
 
 buildPlotter :: Settings -> String -> IO (Spire,SoundClosure)
 buildPlotter set path = do
-    let Just [p,a,d] = sequence $ map (flip lookup set) [T,AMP,DURATION]
+    let Just [p,a,d] = sequence $ map (flip lookup set) [Period,Amplitude,Duration]
         spire@(Spire per dur fn) = makeSpire p a d 
     (sound,dur') <- getWave path spire
     return $ (Spire per (min dur dur') fn, sound)
