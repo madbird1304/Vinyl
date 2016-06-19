@@ -1,3 +1,4 @@
+--{-# OPTIONS_GHC -O2 #-}
 module Spire where
 
 type V2 a = (a , a)
@@ -19,12 +20,12 @@ vmap fn = \ (a,b) -> (fn a,fn b)
 
 makeSpire :: Double -> Double-> Double -> Spire
 makeSpire period ampl duration = Spire (period/2) duration $ \ a t -> let
-    p = 1 - ampl - adp * t + ampl * (a t) * 0.5
+    p = 1 - ampl - adp * t + ampl * (a t) 
     h = p2dp * t
     in vmap ((+ 1)  . (*p)) (sin h, cos h) 
     where
         p2dp = 2 * pi / period
-        adp = (2*ampl) / period
+        adp = (1.5 * ampl) / period
     
 
 
