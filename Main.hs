@@ -1,10 +1,13 @@
 {-# OPTIONS_GHC -O2 #-}
 module Main where
 
-import System.Environment
-import PlotterIO
+import Plotter
 import Settings
+import Help
+
+import System.Environment
 import Data.Char (toUpper)
+
 
 
 defaultWavePath, defaultBMPPath, defaultSize, defaultDuration :: String
@@ -21,8 +24,12 @@ argParser _ defl = defl
 
 defaultArgs = [(S,defaultSize) , (I,defaultWavePath) , (D,defaultDuration) , (O,defaultBMPPath) , (C,defaultConfigPath)]
 
+
+
+
 main = do
     args <- getArgs
+    if "--help" `elem` args then printHelpAndDie else return ()
     let Just [sz',inp,dur',outp,conf] = sequence $ map (flip lookup $ argParser args defaultArgs) [S,I,D,O,C]
     let sz = read sz'
         dur = read dur'
