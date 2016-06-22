@@ -11,6 +11,8 @@ import qualified Data.Vector.Unboxed as V
 
 type Color = BS.ByteString
 type Duration = Double
+type Time = Double
+
 
 type V2 a = (a , a)
 
@@ -20,7 +22,10 @@ type V2I = V2 Int
 type SoundClosure = (Double -> Double) 
 type Plotter = (Spire,SoundClosure)
 
-data Spire = Spire Double Double ((Double -> Double) -> Double -> V2D)
+
+
+
+data Spire = Spire Time Duration (SoundClosure -> Double -> V2D)
 
 bgColor, lineColor :: Color
 
@@ -47,7 +52,7 @@ line l@(x1,y1) r@(x2,y2) | abs (x1 - x2) < abs (y1 - y2) = if y1 == y2 then [l,r
 -----------------------------------------------------------------------------------------------------------------------
 
 
-makeSpire :: Double -> Double-> Double -> Spire
+makeSpire :: Time -> Double-> Duration -> Spire
 makeSpire period ampl duration = Spire (period/2) duration $ \ a t -> let
     p = 1 - ampl - adp * t + ampl * (a t) 
     h = p2dp * t

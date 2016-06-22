@@ -1,5 +1,1 @@
-*.wav
-*.exe 
-*.hi
-*.o
-*.bmp
+.stack-work/
